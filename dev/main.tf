@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 resource "random_pet" "petname" {
-  length    = 3
+  length    = 4
   separator = "-"
 }
 
@@ -83,6 +83,6 @@ EOF
 resource "aws_s3_object" "dev" {
   key          = "index.html"
   bucket       = aws_s3_bucket.dev.id
-  content      = file("${path.module}/assets/index.html")
+  content      = file("${path.module}/../assets/index.html")
   content_type = "text/html"
 }
